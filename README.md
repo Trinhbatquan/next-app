@@ -1,38 +1,17 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+### A.Trong ứng dụng Next.js, bạn không cần phải có một file index.html riêng lẻ vì Next.js tự động tạo và quản lý các trang HTML cho bạn. Thay vì sử dụng index.html, Next.js sử dụng một cơ chế mô-đun JavaScript để xây dựng các trang HTML động.
 
-## Getting Started
+#### Cách Next.js hoạt động là:
 
-First, run the development server:
+##### 1.Pages Directory: Next.js xác định cấu trúc routing dựa trên cấu trúc thư mục trong thư mục pages. Mỗi file JavaScript (hoặc TypeScript) trong thư mục này tự động trở thành một trang web. Ví dụ, pages/index.js sẽ là trang chính khi bạn truy cập trang gốc.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+##### 2.Server-side Rendering (SSR): Next.js cung cấp khả năng Server-side Rendering (SSR) cho các trang của bạn. Khi một yêu cầu đến, Next.js sẽ thực hiện việc xử lý SSR và tạo nội dung HTML tương ứng.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+##### 3.Bộ xử lý trang HTML động: Thay vì sử dụng một file HTML tĩnh như index.html, Next.js sử dụng một bộ xử lý trang HTML động để tạo ra các trang HTML dựa trên nội dung của trang và các thành phần React của bạn.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+##### 4.File \_document.tsx: Nếu bạn muốn tùy chỉnh cấu trúc HTML chung của trang, bạn có thể sử dụng file \_document.tsx. Next.js sẽ sử dụng nó để định nghĩa HTML gốc và đánh vào các thẻ <head> chung cho toàn bộ trang web.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+##### 5.Client-side Navigation: Next.js sử dụng JavaScript để xử lý client-side navigation (điều hướng trên máy khách) để tải các trang khác mà không cần tải lại toàn bộ trang.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+##### =>Vì vậy, không cần phải có một file index.html riêng lẻ bởi vì Next.js tự động tạo và quản lý nội dung HTML cho từng trang dựa trên cấu trúc dự án của bạn và các thành phần React bạn định nghĩa trong các trang của mình.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### B.Khi bạn truy cập một URL trên trình duyệt, Next.js sẽ xác định trang tương ứng dựa trên cấu trúc thư mục trong thư mục pages. Ví dụ, nếu bạn truy cập URL /about, Next.js sẽ tìm và thực thi file pages/about.tsx hoặc pages/about/index.tsx nếu đó là một trang có phân đoạn. Sau khi trang được xử lý, Next.js sẽ sử dụng file \_app.tsx (nếu nó tồn tại) để bọc nội dung của trang trong ứng dụng tổng quan. Điều này cho phép bạn tùy chỉnh cách ứng dụng của bạn được hiển thị trên toàn bộ trang web (cách xử lý routing trong next.js)
