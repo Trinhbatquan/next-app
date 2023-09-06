@@ -30,19 +30,11 @@
 
 ##### c.Catch all routes: pages/posts/[...params].tsx.
 
-##### | Priority | Path | Code |
-
-##### | :---: | :---: | :---: |
-
-##### | 1 | pages/posts/create.tsx | A |
-
-##### | :---: | :---: | :---: |
-
-##### | 2 | pages/posts/[postId].tsx | B |
-
-##### | :---: | :---: | :---: |
-
-##### | 3 | pages/posts/[...params].tsx | C |
+| Priority |            Path             | Code |
+| :------: | :-------------------------: | :--: |
+|    1     |   pages/posts/create.tsx    |  A   |
+|    2     |  pages/posts/[postId].tsx   |  B   |
+|    3     | pages/posts/[...params].tsx |  C   |
 
 ##### => /post/create(A); /posts/123(B); /posts/12345/comments (C).
 
